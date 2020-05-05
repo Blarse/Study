@@ -1,0 +1,562 @@
+#+TITLE: Modern x86 Assembly Language
+#+OPTIONS: num:nil toc:nil
+
+* X86-32 Core Architecture
+** Data Types
+*** Fundamental Data Types:
+    |-----------------+----------------+-----------------------------------------|
+    | Data Type       | Length in Bits | Typical Use                             |
+    |-----------------+----------------+-----------------------------------------|
+    | Byte            |              8 | Character, Integers, Binary             |
+    |                 |                | Coded Decimal (BCD) values.             |
+    |-----------------+----------------+-----------------------------------------|
+    | Word            |             16 | Character, Integers.                    |
+    |-----------------+----------------+-----------------------------------------|
+    | Doubleword      |             32 | Integers,                               |
+    |                 |                | single-percision floating-point.        |
+    |-----------------+----------------+-----------------------------------------|
+    | Quadword        |             64 | Integers, packed integers,              |
+    |                 |                | double-percision floating-point.        |
+    |-----------------+----------------+-----------------------------------------|
+    | Quintword       |             80 | Double-percision floating-point,        |
+    |                 |                | packed BCD.                             |
+    |-----------------+----------------+-----------------------------------------|
+    | Double Quadword |            128 | Packed integers, packed floating-point. |
+    |-----------------+----------------+-----------------------------------------|
+    | Quad Quadword   |            256 | Packed integers, packed floating-point. |
+    |-----------------+----------------+-----------------------------------------|
+   
+*** Numerical Data Types
+    |-------------------+--------------+-----------------------------|
+    | Data Type         | Size in Bits | Equivalent C/C++ Type       |
+    |-------------------+--------------+-----------------------------|
+    | Signed integers   |            8 | char                        |
+    |                   |           16 | short                       |
+    |                   |           32 | int, long                   |
+    |                   |           64 | long long                   |
+    |-------------------+--------------+-----------------------------|
+    | Unsigned integers |            8 | unsigned char               |
+    |                   |           16 | unsigned short              |
+    |                   |           32 | unsigned int, unsigned long |
+    |                   |           64 | unsigned long long          |
+    |-------------------+--------------+-----------------------------|
+    | Floating-point    |           32 | float                       |
+    |                   |           64 | double                      |
+    |                   |           80 | long double                 |
+    |-------------------+--------------+-----------------------------|
+
+*** Packed Data Types
+    |---------------------+---------------------------------+-----------------|
+    | Packed Size in Bits | Data Element Type               | Number of Items |
+    |---------------------+---------------------------------+-----------------|
+    |                  64 | 8-bit integers                  |               8 |
+    |                     | 16-bit integers                 |               4 |
+    |                     | 32-bit integers                 |               2 |
+    |---------------------+---------------------------------+-----------------|
+    |                 128 | 8-bit integers                  |              16 |
+    |                     | 16-bit integers                 |               8 |
+    |                     | 32-bit integers                 |               4 |
+    |                     | 64-bit integers                 |               2 |
+    |                     | Single-percision floating-point |               4 |
+    |                     | Double-percision floating-point |               2 |
+    |---------------------+---------------------------------+-----------------|
+    |                 256 | 8-bit integers                  |              32 |
+    |                     | 16-bit integers                 |              16 |
+    |                     | 32-bit integers                 |               8 |
+    |                     | 64-bit integers                 |               4 |
+    |                     | Single-percision floating-point |               8 |
+    |                     | Double-percision floating-point |               4 |
+    |---------------------+---------------------------------+-----------------|
+
+** Internal Architecture
+*** Segment Registers
+    An x64 processor contains 6 segment registers that designate
+    blocks of memory for code, data, and stack space. In x86-32
+    protected mode, a segment register contains a segment selector,
+    which is used as an index into a segment descriptor table that
+    defines the segment's operational characteristics(size, type,
+    access rights).
+*** General-Purpose Registers
+    ...
+*** EFLAGS Register
+    |-------+---------------------------+--------+---------|
+    |   Bit | Name                      | Symbol | Use     |
+    |-------+---------------------------+--------+---------|
+    |     0 | Carry Flag                | CF     | Status  |
+    |     1 | Reserved                  |        | 1       |
+    |     2 | Parity Flag               | PF     | Status  |
+    |     3 | Reserved                  |        | 0       |
+    |     4 | Auxiliary Carry Flag      | AF     | Status  |
+    |     5 | Reserved                  |        | 0       |
+    |     6 | Zero Flag                 | ZF     | Status  |
+    |     7 | Sign Flag                 | SF     | Status  |
+    |     8 | Trap Flag                 | TF     | System  |
+    |     9 | Interrupt Enable Flag     | IF     | System  |
+    |    10 | Direction Flag            | DF     | Control |
+    |    11 | Overflow Flag             | OF     | Status  |
+    |    12 | I/O Privilege Level Bit 0 | IOPL   | System  |
+    |    13 | I/O Privilege Level Bit 1 | IOPL   | System  |
+    |    14 | Nested Task               | NT     | System  |
+    |    15 | Reserved                  |        | 0       |
+    |    16 | Resume Flag               | RF     | System  |
+    |    17 | Virtual 8086 Mode         | VM     | System  |
+    |    18 | Alignment Check           | AC     | System  |
+    |    19 | Virtual Interrupt Flag    | VIF    | System  |
+    |    20 | Virtual Interrupt Pending | VIP    | System  |
+    |    21 | ID Flag                   | ID     | System  |
+    | 22-31 | Reserved                  |        | 0       |
+    |-------+---------------------------+--------+---------|
+
+*** Instruction Pointer
+    It is not possible for an executiong task to directly access the
+    EIP register.
+*** Memory Addressing Modes
+    Effective Address = BaseReg + IndexReg * ScaleFactor + Disp
+
+    The base register (BaseReg) can be any general-purpose register;
+    the index register (IndexReg) can be any general-purpose register
+    except ESP; displacement (Disp) values are constant offsets that
+    are encoded within the instruction; valid scale
+    factors(ScaleFactor) include 1, 2, 4 and 8.
+
+** Instruction Set Overview
+*** Data Transfer
+    - cmovcc
+
+      Conditionally copies data from a memory location or GPR to a
+      GPR.
+
+    - xadd
+
+      Exchanges data between two GPRs or a GPR and a memory
+      location. The sum of the two operands is then saved to the
+      destination operand.
+
+*** Binary Arithmetic
+    - daa
+      
+      Adjusts the contents of the AL register following an add
+      instruction using packed BCD values in oredr to produce a
+      correct bcd result.
+
+    - das
+
+      Adjusts the contents of the AL register following a sub
+      instruction using packed BCD values in oredr to produce a
+      correct bcd result.
+
+    - aaa
+
+      Adjusts the contents of the AL register following an add
+      instruction using unpacked BCD values in oredr to produce a
+      correct bcd result.
+
+    - aas
+
+      Adjusts the contents of the AL register following a sub
+      instruction using unpacked BCD values in oredr to produce a
+      correct bcd result.
+
+    - aam
+
+      Adjusts the contents of the AX register following a mul
+      instruction using unpacked BCD values in oredr to produce a
+      correct bcd result.
+
+    - aad
+
+      Adjusts the contents of the AX register to prepare for an
+      unpacked BCD division. This instruction is applied before a div
+      instruction that uses unpacked BCD values.
+
+*** Data Comparison
+    - cmp
+      
+      Compares two operands by subtracting the source operand from the
+      destination and then sets the status flags.
+
+    - cmpxchg
+
+      Compares the contents of register AL, AX, or EAX with the
+      destination operand and performs an exchange based on the
+      results.
+
+    - cmpxchg8b
+
+      Compares EDX:EAX with an 8-byte memory operand and performs an
+      exchange based on the results.
+
+*** Data Conversion
+    - cbw
+      
+      Sing-extends register AL and saves the results in register AX.
+
+    - cwde
+      
+      Sing-extends register AX and saves the results in register EAX.
+
+    - cwd
+
+      Sing-extends register AX and saves the results in register pair
+      DX:AX.
+
+    - cdq
+
+      Sing-extends register EAX and saves the results in register
+      EDX:EAX.
+
+    - bswap
+      
+      Reverses the bytes of a value in a 32-bit GPR, which converts
+      the original value from little-engian ordering to big-endian
+      ordering or vice versa.
+
+    - movbe
+
+      Loads the source operand into a temporary register, reverses the
+      bytes, and saves the result to the destination operand. This
+      instruction converts the source operand from little-endian to
+      big-endian format or vice versa. One of the operands must be a
+      memory location; the other must be a GPR.
+
+    - xlatb
+
+      Converts the value contained in the AL register to another value
+      using a lookup table pointed to by the EBX register.
+
+*** Rotate and Shift
+    - rcl
+
+      Rotates the specified operand to the left. EFLAGS.CY flag is
+      included as part of the rotation.
+
+    - rcr
+
+      Rotates the specified operand to the right. EFLAGS.CY flag is
+      included as part of the rotation.
+
+    - rol
+
+      Rotates the specified operand to the left.
+
+    - ror
+
+      Rotates the specified operand to the left.
+
+    - sal/shl
+
+      Performs an arithmetic left shift of the specified operand.
+
+    - sar
+
+      Performs an arithmetic right shift of the specified operand.
+
+    - shr
+
+      Performs an logical right shift of the specified operand.
+
+    - shld
+
+      Performs a double-percision logical left shift using two operands
+
+    - shrd
+
+      Performs a double-percision logical right shift using two operands
+
+*** Byte Set and Bit String
+    - setcc
+      
+      Sets the destination byte operand to 1 if the condition code
+      specified by cc is true; otherwise the destination byte operand
+      is set to 0.
+
+    - bt
+
+      Copies the designated test bit to EFLAGS.CY.
+
+    - bts
+
+      Copies the designated test bit to EFLAGS.CY. The test bit is
+      then set to 1.
+
+    - btr/btc
+
+      Copies the designated test bit to EFLAGS.CY. The test bit is
+      then set to 0.
+
+    - bsf
+      
+      Scans the source operand and saves to the destination operand
+      the index of the least-significant bit that is set to 1. If the
+      value of the source operand is zero, EFLAGS.ZF is set to 1;
+      otherwise, EFLAGS.ZF is set to 0.
+
+    - bsr
+      
+      Scans the source operand and saves to the destination operand
+      the index of the most-significant bit that is set to 1. If the
+      value of the source operand is zero, EFLAGS.ZF is set to 1;
+      otherwise, EFLAGS.ZF is set to 0.
+
+*** String
+    - cmpsb/cmpsw/cmpsd
+
+      Compares the values at the memory locations pointed to by
+      registers ESI and EDI; sets the status flags to indicate the
+      results.
+
+    - lodsb/lodsw/lodsd
+
+      Loads the value at the memory location pointed to by register
+      ESI into the AL, AX, or EAX register.
+
+    - movsb/movsw/movsd
+
+      Copies the value of the memory location specified by register
+      ESI to the memory location specified by register EDI.
+
+    - scasb/scasw/scasd
+      
+      Compares the value of the memory location specified by register
+      EDI with the value contained in register AL, AX, or EAX; set the
+      status flags based on the comparison results.
+
+    - stosb/stosw/stosd
+
+      Stores the contents of register AL, AX, or EAX to the memory
+      location specified by register EDI.
+
+    - rep
+
+      Repeats the specified string instruction while the condition ECX
+      != 0 is true.
+
+    - repe/repz
+
+      Repeats the specified string instruction while the condition ECX
+      != 0 && ZF == 1 is true.
+
+    - repne/repnz
+
+      Repeats the specified string instruction while the condition ECX
+      != 0 && ZF == 0 is true.
+
+*** Flag Manipulation
+    - clc
+      
+      Sets EFLAGS.CY to 0.
+
+    - stc
+
+      Sets EFLAGS.CY to 1.
+
+    - cmc
+
+      Toggles the state of EFLAGS.CY.
+
+    - std
+      
+      Sets EFLAGS.DF to 1.
+
+    - cld
+
+      Sets EFLAGS.DF to 0.
+
+    - lahf
+      
+      loads register AH with the values of the status flags. The bits
+      of register AH(most to least significant) are loaded as follows:
+      SF,ZF,0,AF,0,PF,1,CF.
+
+    - sahf
+
+      Stores register AH to the status flags. The bits of register AH
+      are stored to the status flags as follows: SF,ZF,0,PF,1,CF
+
+    - pushfd
+
+      Pushes the EFLAGS register onto the stack.
+
+    - popfd
+      
+      Pops the top most value from the stack and copies it to the
+      EFLAGS register. Note that the reserved bits in the EFLAGS
+      register are not affected by this instruction.
+
+*** Control Transfer
+    - jecxz
+
+      Performs a jump to the specified memory location if the
+      condition ECX == 0 is ture.
+
+    - loop
+
+      Subtracts one from register ECX and jumps to the specified memory
+      location if ECX != 0.
+
+    - loope/loopz
+
+      Subtracts one from register ECX and jumps to the specified memory
+      location if ECX != 0 && ZF == 1.
+
+    - loopne/loopnz
+
+      Subtracts one from register ECX and jumps to the specified memory
+      location if ECX != 0 && ZF == 0.
+ 
+*** Miscellaneous
+    - bound
+      
+      Performs a validation check of an array index. If an
+      out-of-bounds condition is detected, the processor generates an
+      interrupt.
+
+    - lea
+
+      Computes the effective address of the source operand and saves
+      it to the destination operand, which must be a GPR.
+
+    - cpuid
+      
+      Obtains processor identification and feature information. This
+      instruction can be used to ascertain at run-time which SIMD
+      extensions are available. It also can be used to determine
+      specific hardware features that the processor supports.
+
+* x87 Floating-Point Unit
+** Core Architecture
+   The x87 FPU includes 8 80-bit wide data registers, control register,
+   status register and several auxiliary registers that are used
+   primarily by OS and floating-point exception handlers.
+
+*** Data Registers
+    The x87 FPU's 8 data registers are organized as a stack. Data
+    transfer between an x87 FPU data register and an x86-32 GPR are not
+    possible. Conversion between internal format and all supported
+    integer, floating-point, and BCD formats occurs automatically. The
+    x87 uses an IEEE 754-1985 as standard for binary floating-point
+    arithmetic.
+
+*** Special-Purpose Registers
+**** Control Register
+     | 15 - 13 | 12 | 11-10 | 9-8 | 7 | 6 |  5 |  4 |  3 |  2 |  1 |  0 |
+     |---------+----+-------+-----+---+---+----+----+----+----+----+----|
+     |         |  X |    RC |  PC |   |   | PM | UM | OM | ZM | DM | IM |
+   
+     | Bit | Field Name              | Description                           |
+     |-----+-------------------------+---------------------------------------|
+     | IM  | Invalid operation mask  | Invalid operation exception mask      |
+     |     |                         | bit; 1 disables the exception.        |
+     |-----+-------------------------+---------------------------------------|
+     | DM  | Denormal operatnd mask  | Denormal operand exception mask       |
+     |     |                         | bit; 1 disables the exception.        |
+     |-----+-------------------------+---------------------------------------|
+     | ZM  | Zero divide mask        | Division-by-zero exception mask       |
+     |     |                         | bit; 1 disables the exception.        |
+     |-----+-------------------------+---------------------------------------|
+     | OM  | Overflow mask           | Overflow exception mask bit;          |
+     |     |                         | 1 disables the exception.             |
+     |-----+-------------------------+---------------------------------------|
+     | UM  | Underflow mask          | Underflow exception mask bit;         |
+     |     |                         | 1 disables the exception.             |
+     |-----+-------------------------+---------------------------------------|
+     | PM  | Precision mask          | Precision exception mask bit;         |
+     |     |                         | 1 disables the exception.             |
+     |-----+-------------------------+---------------------------------------|
+     | PC  | Precision control field | Specifies the precision for           |
+     |     |                         | basic floating-point calculations.    |
+     |     |                         | Valid options include single          |
+     |     |                         | precision (00b), double precision     |
+     |     |                         | (10b), and double extended (11b).     |
+     |-----+-------------------------+---------------------------------------|
+     | RC  | Rounding control field  | Specifies the method for roungin      |
+     |     |                         | x87 FPU results. Valid options        |
+     |     |                         | include round to nearest (00b),       |
+     |     |                         | round down towards -inf (01b), round  |
+     |     |                         | up towards +inf (10b), and round      |
+     |     |                         | towards zero or truncate (11b).       |
+     |-----+-------------------------+---------------------------------------|
+     | X   | Infinity control bit    | Enables processing of infinity        |
+     |     |                         | values in a manner that is compatible |
+     |     |                         | with the 80287 math coprocessor.      |
+     |     |                         | Modern software can ignore this flag. |
+
+**** Status Register
+
+     | 15 | 14 | 13-11 | 10 |  9 |  8 |  7 |  6 |  5 |  4 |  3 |  2 |  1 |  0 |
+     |----+----+-------+----+----+----+----+----+----+----+----+----+----+----|
+     |  B | C3 |   TOP | C2 | C1 | C0 | ES | SF | PE | UE | OE | ZE | DE | IE |
+
+     | Bit | Field Name                  | Description                            |
+     |-----+-----------------------------+----------------------------------------|
+     | IE  | Invalid operation exception | Invalid operation exception status;    |
+     |     |                             | set to 1 whenever an instruction       |
+     |     |                             | uses an invalid operand.               |
+     |-----+-----------------------------+----------------------------------------|
+     | DE  | Denormal operand exception  | Denormal operand exception status;     |
+     |     |                             | set to 1 whenever an instruction       |
+     |     |                             | uses a denormal operand.               |
+     |-----+-----------------------------+----------------------------------------|
+     | ZE  | ZEro divide exception       | Division-by-zero exception status;     |
+     |     |                             | tet to 1 whenever an instruction       |
+     |     |                             | attempts division-by-zero.             |
+     |-----+-----------------------------+----------------------------------------|
+     | OE  | Overflow exception          | Set to 1 if a result exceeds the       |
+     |     |                             | maximum allowable value for            |
+     |     |                             | destination operand.                   |
+     |-----+-----------------------------+----------------------------------------|
+     | UE  | Underflow exception         | Set to 1 if a result is smaller        |
+     |     |                             | than the minimum allowable value       |
+     |     |                             | for destination operand.               |
+     |-----+-----------------------------+----------------------------------------|
+     | PE  | Percision exception         | Set to 1 if a result cannot be         |
+     |     |                             | exactly represented using binary       |
+     |     |                             | format of destination operand.         |
+     |-----+-----------------------------+----------------------------------------|
+     | SF  | Stack fault                 | Signifies that a stack fault has       |
+     |     |                             | occurred when set to 1 (the IE         |
+     |     |                             | flag is also set to 1); condition      |
+     |     |                             | code bit C1 indicates the stack        |
+     |     |                             | fault type: 0 - underflow              |
+     |     |                             | 1 - overflow.                          |
+     |-----+-----------------------------+----------------------------------------|
+     | ES  | Error summary status        | Indicates that at least one            |
+     |     |                             | unmasked exception bit is set.         |
+     |-----+-----------------------------+----------------------------------------|
+     | C0  | Condition code flag 0       |                                        |
+     | C1  | Condition code flag 1       |                                        |
+     | C2  | Condition code flag 2       |                                        |
+     |-----+-----------------------------+----------------------------------------|
+     | TOS | TOP-of-stack register       | Three-bit value that indicates         |
+     |     |                             | the current top-of-stack register.     |
+     |-----+-----------------------------+----------------------------------------|
+     | C3  | Condition code flag 3       |                                        |
+     |-----+-----------------------------+----------------------------------------|
+     | B   | Busy flag                   | Duplicates the state of the ES         |
+     |     |                             | flag; provided for 8087 compatibility; |
+     |     |                             | modern apps programs can ignore it.    |
+     |-----+-----------------------------+----------------------------------------|
+
+     The condition code flags report the result of floating-point
+     arithmetic and compare operations. Thy are also used by some
+     instructions to indicate errors or additional status info.
+
+     The x87 FPU includes 3 registers: last instruction pointer, last
+     data pointer, and last instruction opcode.
+*** x87 FPU Operands and Encodings
+    The x87 FPU supports three types of operands: signed integer
+    (16/32/64-bits), floating-point (32/64/80-bits), and packed BCD.
+    | Parameter         | Single | Double | Double-Extended |
+    |-------------------+--------+--------+-----------------|
+    | Total width       |     32 |     64 |              80 |
+    | Significand width |     23 |     52 |              63 |
+    | Exponent width    |      8 |     11 |              15 |
+    | Sign width        |      1 |      1 |               1 |
+    | Exponent bias     |   +127 |  +1023 |          +16383 |
+							       
+* MMX Technology
+** Saturated add and sub
+** MMX Execution environment
+   MMX adds 8 64-bit registers MM0-MM7.
+** MMX Instruction Set
+   

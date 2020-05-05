@@ -1,0 +1,66 @@
+#+TITLE: DB
+#+OPTIONS: num:nil toc:nil
+
+* Books [0%]:
+  - [ ] *Architecture* [0/2]:
+    + [ ] [[file:books/Architecture/A.Tanenbaum-Structured_Computer_Organization.pdf][Structured Computer Organization]]
+    + [ ] [[file:books/Architecture/D.Patterson-Computer_Organization_and_Design_RISC-V_Edition.pdf][Computer Organization and Design RISC-V Edition]]
+  - [ ] *OS* [0/5]:
+    + [ ] [[file:books/OS/T.Anderson-Operating_Systems_Principles_and_Practice/T.Anderson-Operating_Systems_Principles_and_Practice_Vol1.pdf][Operating Systems: Principles and Practise]]
+    + [ ] [[file:books/OS/A.Tanenbaum-Modern_Operating_Systems.pdf][Modern Operating Systems]]
+    + [ ] [[file:books/OS/M.McKusick-The_Design_and_Implementation_of_the_FreeBSD.pdf][The Design and Implementation of the FreeBSD]]
+    + [ ] [[file:books/OS/M.Bach-The_Design_of_the_Unix_Operating_System.pdf][The Design of the Unix Operating System]]
+    + [ ] [[file:books/OS/E.Raymond-The_Art_of_Unix_Programming.pdf][The Art of Unix Programming]]
+  - [ ] *Linux* [0/3]:
+    + [ ] [[file:books/Linux/R.Love-Linux_Kernel_Development.pdf][Linux Kernel Development]]
+    + [ ] [[file:books/Linux/D.Bovet-Understanding_the_Linux_Kernel.pdf][Understanding The Linux Kernel]]
+    + [ ] [[file:books/Linux/J.Corbet-Linux_Device_Drivers.pdf][Linux Device Drivers]]
+    + [ ] [[file:books/Linux/B.Ward-How_Linux_Works.pdf][How Linux Works]]
+  - [ ] *C/C++/Asm* [0/9]:
+    + [ ] [[file:books/C/B.Kernighan-The_C_Programming_Language.pdf][The C PL]]
+    + [ ] [[file:books/C/D.Kusswurm-Modern_X86_Assembly_Language.pdf][Modern x86 Assembly]]
+    + [ ] [[file:books/C/J.Gustedt-Modern_C.pdf][Modern C]]
+    + [ ] [[file:books/C/Z.Shaw-Learn_C_The_Hard_Way.pdf][Learn C the Hard Way]]
+    + [ ] [[file:books/C/B.Stroustrup-The_C++_Programming_Language.pdf][The C++ PL]]
+    + [ ] [[file:books/C/S.Meyers-Effective_C++.pdf][Effective C++]]
+    + [ ] [[file:books/C/S.Meyers-Effective_Modern_C++.pdf][Effective Modern C++]]
+    + [ ] [[file:books/C/S.Meyers-Effective_STL.pdf][Effective STL]]
+    + [ ] [[file:books/C/A.Williams-C++_Concurrency_in_Action.pdf][C++ Concurrency in Action]]
+  - [ ] *Software Engineering* [0/2]:
+    + [ ] [[file:books/SoftwareEngineering/M.Herlihy-The_Art_of_Multiprocessor_Programming.pdf][The Art of Multiprocessor Programming]]
+    + [ ] [[file:books/SoftwareEngineering/T.Cormen-Introduction_to_Algorithms.pdf][Introduction to Algorithms]]
+  - [-] *Tools* [1/4]:
+    + [X] [[file:books/Tools/S.Chacon-Pro_Git.pdf][Progit]]
+    + [ ] [[file:books/Tools/M.McQuaid-Git_in_Practice.pdf][Git in Practice]]
+    + [ ] [[file:books/Tools/W.Shotts-The_Linux_Command_Line.pdf][The Linux Comand Line - A Complete Introduction]]
+  - [ ] *Networking* [0/2]:
+    + [ ] [[file:books/Networking/K.Ross-Computer_Networking_A_Top_Down_Approach.pdf][Computer Networking A TopDown Approach]]
+    + [ ] [[file:books/Networking/R.Stevens-UNIX_Network_Programming.pdf][UNIX Network Programming]]
+  - [ ] *Compilers* [0/4]:
+    + [ ] [[file:books/Compilers/A.Aho-Compilers_Principles_Techniques_and_Tools.pdf][Dragon book]]
+    + [ ] [[file:books/Compilers/K.Cooper-Engineering_A_Compiler.pdf][Engineering: A Compile]]
+    + [ ] [[file:books/Compilers/T.Parr-Language_Implementation_Patterns.pdf][Language Implementation Patterns]]
+    + [ ] [[file:books/Compilers/N.Wirth-Compiler_Construction_1.pdf][Compiler Construction]]
+  - [ ] *Game Dev* [0/2]:
+    + [ ] [[file:books/GameDev/J.Gregory-Game_Engine_Architecture.pdf][Game Engine Architecture]]
+    + [ ] [[file:books/GameDev/M.McShaffry-Game_Coding_Complete.pdf][Game Coding Complete]]
+  - [ ] *Emulators* [0/1]:
+    + [ ] [[file:books/Emulators/V.Barrio-Study_of_the_Techniques_for_Emulation_Programming.pdf][CPU emulation]]
+  - [ ] *Hacking* [0/1]:
+    + [ ] [[file:books/Hacking/J.Erickson-Hacking_the_Art_of_Exploitation.pdf][Hacking The Art of Exploitation]]
+
+* Courses [0%]:
+   - [ ] Bitwise
+   - [ ] Handmade
+   - [ ] CS 162: OS and System Programming
+   - [ ] Computer Architecture Carnegie Mellon
+
+* Docs
+  - [ ] *Emacs* [0/4]:
+    + [ ] Emacs
+    + [ ] Emacs Lisp
+    + [ ] Org Mode
+    + [ ] CC Mode
+
+* Papers
+   - [ ] What every programmer should know about memory
