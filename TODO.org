@@ -1,0 +1,31 @@
+#+TITLE: TODO
+#+STARTUP: showall
+
+* Activities
+  - Courses
+  - Books
+  - Articles
+  - Projects
+  - Desktop Environment Config
+
+* Projects
+  - RISC-V64GC FULL STACK
+  - C Lib
+  - LFS
+  - DIY Keyboard
+  - PCB Computer
+
+* Study Plan:
+  - Programming [0/5]:
+	+ [ ] Architecture (PROJECT: RISC-V64GC assembler, emulator, Verilog implementation)
+	+ [ ] OS (PROJECT: OS for RISC-v64GC)
+	+ [ ] Algorithms and Assembly
+	+ [ ] Languages and Compilers
+	+ [ ] Game Dev
+  - System Administration and Linux [0/2]:
+	- [ ] Unix and Linux Administration Handbook
+	- [ ] LFS
+	- [ ] ulinux
+
+
+
