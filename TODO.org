@@ -12,7 +12,6 @@
   - RISC-V64GC FULL STACK
   - C Lib
   - LFS
-  - DIY Keyboard
   - PCB Computer
 
 * Study Plan:
@@ -26,6 +25,3 @@
 	- [ ] Unix and Linux Administration Handbook
 	- [ ] LFS
 	- [ ] ulinux
-
-
-
