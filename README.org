@@ -3,54 +3,58 @@
 
 * Books [0%]:
   - [-] *Architecture* [1/2]:
-	+ [X] [[file:books/Architecture/A.Tanenbaum-Structured_Computer_Organization.pdf][Structured Computer Organization]]
-	+ [ ] [[file:books/Architecture/D.Patterson-Computer_Organization_and_Design_RISC-V_Edition.pdf][Computer Organization and Design RISC-V Edition]]
+    + [X] [[file:books/Architecture/A.Tanenbaum-Structured_Computer_Organization.pdf][Structured Computer Organization]]
+    + [ ] [[file:books/Architecture/D.Patterson-Computer_Organization_and_Design_RISC-V_Edition.pdf][Computer Organization and Design RISC-V Edition]]
   - [ ] *OS* [0/5]:
-	+ [ ] [[file:books/OS/T.Anderson-Operating_Systems_Principles_and_Practice/T.Anderson-Operating_Systems_Principles_and_Practice_Vol1.pdf][Operating Systems: Principles and Practise]]
-	+ [ ] [[file:books/OS/A.Tanenbaum-Modern_Operating_Systems.pdf][Modern Operating Systems]]
-	+ [ ] [[file:books/OS/M.McKusick-The_Design_and_Implementation_of_the_FreeBSD.pdf][The Design and Implementation of the FreeBSD]]
-	+ [ ] [[file:books/OS/M.Bach-The_Design_of_the_Unix_Operating_System.pdf][The Design of the Unix Operating System]]
-	+ [ ] [[file:books/OS/E.Raymond-The_Art_of_Unix_Programming.pdf][The Art of Unix Programming]]
-  - [ ] *Linux* [0/6]:
-	+ [ ] [[file:books/Linux/C.Simmonds-Mastering_Embedded_Linux_Programming.pdf][Mastering Embedded Programming]]
-	+ [ ] [[file:books/Linux/R.Love-Linux_Kernel_Development.pdf][Linux Kernel Development]]
-	+ [ ] [[file:books/Linux/M.Kerrisk-The_Linux_Programming_Interface.pdf][The Linux Programming Interface]]
-	+ [ ] [[file:books/Linux/D.Bovet-Understanding_the_Linux_Kernel.pdf][Understanding The Linux Kernel]]
-	+ [ ] [[file:books/Linux/J.Corbet-Linux_Device_Drivers.pdf][Linux Device Drivers]]
-	+ [ ] [[file:books/Linux/B.Ward-How_Linux_Works.pdf][How Linux Works]]
-	+ [ ] Unix and Linux System Administration Handbook
+    + [ ] [[file:books/OS/T.Anderson-Operating_Systems_Principles_and_Practice/T.Anderson-Operating_Systems_Principles_and_Practice_Vol1.pdf][Operating Systems: Principles and Practise]]
+    + [ ] [[file:books/OS/A.Tanenbaum-Modern_Operating_Systems.pdf][Modern Operating Systems]]
+    + [ ] [[file:books/OS/M.McKusick-The_Design_and_Implementation_of_the_FreeBSD.pdf][The Design and Implementation of the FreeBSD]]
+    + [ ] [[file:books/OS/M.Bach-The_Design_of_the_Unix_Operating_System.pdf][The Design of the Unix Operating System]]
+    + [ ] [[file:books/OS/E.Raymond-The_Art_of_Unix_Programming.pdf][The Art of Unix Programming]]
+  - [ ] *Linux* [0/7]:
+    + [ ] [[file:books/Linux/C.Simmonds-Mastering_Embedded_Linux_Programming.pdf][Mastering Embedded Programming]]
+    + [ ] [[file:books/Linux/R.Love-Linux_Kernel_Development.pdf][Linux Kernel Development]]
+    + [ ] [[file:books/Linux/M.Kerrisk-The_Linux_Programming_Interface.pdf][The Linux Programming Interface]]
+    + [ ] [[file:books/Linux/D.Bovet-Understanding_the_Linux_Kernel.pdf][Understanding The Linux Kernel]]
+    + [ ] [[file:books/Linux/J.Corbet-Linux_Device_Drivers.pdf][Linux Device Drivers]]
+    + [ ] [[file:books/Linux/B.Ward-How_Linux_Works.pdf][How Linux Works]]
+    + [ ] [[file:books/Linux/E.Nemeth-Unix_and_Linux_System_Administration_Handbook.pdf][Unix and Linux System Administration Handbook]]
   - [ ] *C/C++/Asm* [0/9]:
-	+ [ ] [[file:books/C/B.Kernighan-The_C_Programming_Language.pdf][The C PL]]
-	+ [ ] [[file:books/C/D.Kusswurm-Modern_X86_Assembly_Language.pdf][Modern x86 Assembly]]
-	+ [ ] [[file:books/C/J.Gustedt-Modern_C.pdf][Modern C]]
-	+ [ ] [[file:books/C/Z.Shaw-Learn_C_The_Hard_Way.pdf][Learn C the Hard Way]]
-	+ [ ] [[file:books/C/B.Stroustrup-The_C++_Programming_Language.pdf][The C++ PL]]
-	+ [ ] [[file:books/C/S.Meyers-Effective_C++.pdf][Effective C++]]
-	+ [ ] [[file:books/C/S.Meyers-Effective_Modern_C++.pdf][Effective Modern C++]]
-	+ [ ] [[file:books/C/S.Meyers-Effective_STL.pdf][Effective STL]]
-	+ [ ] [[file:books/C/A.Williams-C++_Concurrency_in_Action.pdf][C++ Concurrency in Action]]
-  - [ ] *Software Engineering* [0/2]:
-	+ [ ] [[file:books/SoftwareEngineering/M.Herlihy-The_Art_of_Multiprocessor_Programming.pdf][The Art of Multiprocessor Programming]]
-	+ [ ] [[file:books/SoftwareEngineering/T.Cormen-Introduction_to_Algorithms.pdf][Introduction to Algorithms]]
+    + [ ] [[file:books/C/B.Kernighan-The_C_Programming_Language.pdf][The C PL]]
+    + [ ] [[file:books/C/D.Kusswurm-Modern_X86_Assembly_Language.pdf][Modern x86 Assembly]]
+    + [ ] [[file:books/C/J.Gustedt-Modern_C.pdf][Modern C]]
+    + [ ] [[file:books/C/Z.Shaw-Learn_C_The_Hard_Way.pdf][Learn C the Hard Way]]
+    + [ ] [[file:books/C/B.Stroustrup-The_C++_Programming_Language.pdf][The C++ PL]]
+    + [ ] [[file:books/C/S.Meyers-Effective_C++.pdf][Effective C++]]
+    + [ ] [[file:books/C/S.Meyers-Effective_Modern_C++.pdf][Effective Modern C++]]
+    + [ ] [[file:books/C/S.Meyers-Effective_STL.pdf][Effective STL]]
+    + [ ] [[file:books/C/A.Williams-C++_Concurrency_in_Action.pdf][C++ Concurrency in Action]]
+  - [ ] *Software Engineering* [0/4]:
+    + [ ] [[file:books/SoftwareEngineering/M.Herlihy-The_Art_of_Multiprocessor_Programming.pdf][The Art of Multiprocessor Programming]]
+    + [ ] [[file:books/SoftwareEngineering/T.Cormen-Introduction_to_Algorithms.pdf][Introduction to Algorithms]]
+    + [ ] [[file:books/SoftwareEngineering/S.McConnell-Code_Complete.pdf][Code Complete]]
+    + [ ] [[file:books/SoftwareEngineering/J.Bentley-Programming_Pearls.pdf][Programming Pearls]]
   - [-] *Tools* [1/3]:
-	+ [X] [[file:books/Tools/S.Chacon-Pro_Git.pdf][Progit]]
-	+ [ ] [[file:books/Tools/M.McQuaid-Git_in_Practice.pdf][Git in Practice]]
-	+ [ ] [[file:books/Tools/W.Shotts-The_Linux_Command_Line.pdf][The Linux Comand Line - A Complete Introduction]]
+    + [X] [[file:books/Tools/S.Chacon-Pro_Git.pdf][Progit]]
+    + [ ] [[file:books/Tools/M.McQuaid-Git_in_Practice.pdf][Git in Practice]]
+    + [ ] [[file:books/Tools/W.Shotts-The_Linux_Command_Line.pdf][The Linux Comand Line - A Complete Introduction]]
   - [ ] *Networking* [0/2]:
-	+ [ ] [[file:books/Networking/K.Ross-Computer_Networking_A_Top_Down_Approach.pdf][Computer Networking A TopDown Approach]]
-	+ [ ] [[file:books/Networking/R.Stevens-UNIX_Network_Programming.pdf][UNIX Network Programming]]
+    + [ ] [[file:books/Networking/K.Ross-Computer_Networking_A_Top_Down_Approach.pdf][Computer Networking A TopDown Approach]]
+    + [ ] [[file:books/Networking/R.Stevens-UNIX_Network_Programming.pdf][UNIX Network Programming]]
   - [ ] *Compilers* [0/4]:
-	+ [ ] [[file:books/Compilers/A.Aho-Compilers_Principles_Techniques_and_Tools.pdf][Dragon book]]
-	+ [ ] [[file:books/Compilers/K.Cooper-Engineering_A_Compiler.pdf][Engineering: A Compile]]
-	+ [ ] [[file:books/Compilers/T.Parr-Language_Implementation_Patterns.pdf][Language Implementation Patterns]]
-	+ [ ] [[file:books/Compilers/N.Wirth-Compiler_Construction_1.pdf][Compiler Construction]]
+    + [ ] [[file:books/Compilers/A.Aho-Compilers_Principles_Techniques_and_Tools.pdf][Dragon book]]
+    + [ ] [[file:books/Compilers/K.Cooper-Engineering_A_Compiler.pdf][Engineering: A Compile]]
+    + [ ] [[file:books/Compilers/T.Parr-Language_Implementation_Patterns.pdf][Language Implementation Patterns]]
+    + [ ] [[file:books/Compilers/N.Wirth-Compiler_Construction_1.pdf][Compiler Construction]]
   - [ ] *Game Dev* [0/2]:
-	+ [ ] [[file:books/GameDev/J.Gregory-Game_Engine_Architecture.pdf][Game Engine Architecture]]
-	+ [ ] [[file:books/GameDev/M.McShaffry-Game_Coding_Complete.pdf][Game Coding Complete]]
+    + [ ] [[file:books/GameDev/J.Gregory-Game_Engine_Architecture.pdf][Game Engine Architecture]]
+    + [ ] [[file:books/GameDev/M.McShaffry-Game_Coding_Complete.pdf][Game Coding Complete]]
+    + [ ] [[file:books/GameDev/R.Nystrom-Game_Programming_Patterns.pdf][Game Programming Patterns]]
+    + [ ] [[file:books/GameDev/E.Haines-RealTime_Rendering.pdf][Real-Time Rendering]]
   - [ ] *Emulators* [0/1]:
-	+ [ ] [[file:books/Emulators/V.Barrio-Study_of_the_Techniques_for_Emulation_Programming.pdf][CPU emulation]]
+    + [ ] [[file:books/Emulators/V.Barrio-Study_of_the_Techniques_for_Emulation_Programming.pdf][CPU emulation]]
   - [ ] *Hacking* [0/1]:
-	+ [ ] [[file:books/Hacking/J.Erickson-Hacking_the_Art_of_Exploitation.pdf][Hacking The Art of Exploitation]]
+    + [ ] [[file:books/Hacking/J.Erickson-Hacking_the_Art_of_Exploitation.pdf][Hacking The Art of Exploitation]]
 
 * Courses [50%]:
    - [ ] Bitwise
@@ -59,8 +63,8 @@
    - [X] Computer Architecture Carnegie Mellon
 
 * Papers
-   - [ ] What every programmer should know about memory
-   - [ ] The Microarchitecture of Superscalar Processors
-   - [ ] Combining Branch Predictors
-   - [ ] NVIDIA Tesla: A Unified Graphics and Computing Architecture
-   - [X] MMX Technology Extension to the Intel Architecture
+   - [ ] [[file:articles/U.Drepper-What_Every_Programmer_Should_Know_About_Memory.pdf][What every programmer should know about memory]]
+   - [ ] [[file:articles/J.Smith-The_Microarchitecture_of_Superscalar_Processors.pdf][The Microarchitecture of Superscalar Processors]]
+   - [ ] [[file:articles/S.McFarling-Combining_Branch_Predictors.pdf][Combining Branch Predictors]]
+   - [ ] [[file:articles/E.Lindholm-NVIDIA_Tesla:_A_Unified_Graphics_and_Computing_Architecture.pdf][NVIDIA Tesla: A Unified Graphics and Computing Architecture]]
+   - [X] [[file:articles/A.Peleg-MMX_Technology_Extension_to_the_Intel_Architecture.pdf][MMX Technology Extension to the Intel Architecture]]
